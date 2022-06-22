@@ -303,6 +303,7 @@ static uint64_t l2vic_read(void *opaque, hwaddr offset,
     }
 
     trace_l2vic_reg_read((unsigned) offset, value);
+    qemu_mutex_unlock(&s->active);
 
     return value;
 }
